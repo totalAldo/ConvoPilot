@@ -80,10 +80,11 @@
           <ol class="list">
             <li>Open ConvoPilot and complete the first-run legal setup.</li>
             <li>Choose your legal region manually, or use location to suggest a region if you want help identifying it.</li>
-            <li>Keep transcription on device unless you intentionally opt into cloud processing in Settings.</li>
+            <li>This release uses on-device transcription. Speech assets may need to download before the first session.</li>
             <li>Start a session before the conversation begins.</li>
             <li>Watch the live transcript, mood timeline, highlights, and analysis cues during the conversation.</li>
             <li>Stop the session when finished. Summaries are only stored if you enabled saving in Settings.</li>
+            <li>Use History to paste/import a conversation or explicitly record/import audio for later review. Saved recordings remain on device until deleted.</li>
           </ol>
         </article>
 
@@ -109,11 +110,11 @@
           </details>
           <details>
             <summary>The transcript does not seem to include the other person on a call.</summary>
-            <p>That can happen on iPhone. ConvoPilot version 1 is microphone-first and does not guarantee two-sided capture from Phone, FaceTime, Zoom, Bluetooth audio, or the earpiece path.</p>
+            <p>That can happen on iPhone. ConvoPilot is microphone-first and does not guarantee two-sided capture from Phone, FaceTime, Zoom, Bluetooth audio, or the earpiece path.</p>
           </details>
           <details>
             <summary>I see an on-device or cloud badge. What does it mean?</summary>
-            <p>The badge shows where transcription for the current session is happening. On-device is the default. Cloud processing should only appear if you explicitly allowed it and a cloud mode is actively in use.</p>
+            <p>This release uses on-device transcription. Its cloud preference is off by default and warning-backed, but enabling that preference does not activate a cloud engine. An active future cloud mode would need to display a Cloud badge.</p>
           </details>
           <details>
             <summary>Can ConvoPilot give legal advice about recording a call?</summary>
@@ -121,7 +122,19 @@
           </details>
           <details>
             <summary>Are summaries or raw audio saved automatically?</summary>
-            <p>Raw audio is not saved. Session summaries are only stored on device if you turned summary saving on in Settings.</p>
+            <p>Live session audio is not saved. Summaries and full transcripts are stored on device only if you enable saving. Audio you explicitly record or import in History is saved locally until you delete it.</p>
+          </details>
+          <details>
+            <summary>Apple Intelligence or a downloaded model is unavailable.</summary>
+            <p>Apple Intelligence depends on compatible hardware, supported language, and device settings. Built-in conversation signals and imported review guidance remain available without generated prose. Strong Local AI models require a supported physical device and an explicit download in Settings. Choose a smaller model if memory is limited.</p>
+          </details>
+          <details>
+            <summary>What leaves the device during a model download or location suggestion?</summary>
+            <p>Hugging Face and its delivery services receive model/file requests and connection metadata, such as your IP address. Conversation content is not included. Optional location help uses Apple Maps reverse geocoding; manual legal-region selection needs no location permission. See the <a href="../privacy/">privacy policy</a> for details.</p>
+          </details>
+          <details>
+            <summary>I see Settings Unavailable when the app opens.</summary>
+            <p>Check that the device has available storage, then use Try Again. The retry preserves saved History and preferences; it does not reset your data.</p>
           </details>
         </div>
       </section>

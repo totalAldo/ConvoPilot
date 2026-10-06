@@ -30,7 +30,7 @@
             <h1>ConvoPilot is designed to keep conversation analysis on device by default.</h1>
             <p class="hero-copy">
               This policy explains what ConvoPilot processes, what it stores, and the controls users have over transcription,
-              summaries, notifications, and optional location-based legal-region suggestions.
+              saved recordings, imported text, summaries, model downloads, notifications, and optional legal-region suggestions.
             </p>
           </div>
 
@@ -38,7 +38,7 @@
             <div class="meta-list">
               <div class="meta-item">
                 <span class="meta-label">Effective Date</span>
-                <strong>March 27, 2026</strong>
+                <strong>October 6, 2026</strong>
               </div>
               <div class="meta-item">
                 <span class="meta-label">Default Processing Mode</span>
@@ -57,7 +57,7 @@
         <div class="stat-grid">
           <article class="stat">
             <strong>Raw audio</strong>
-            <p>Not saved by default and intended to stay in memory only during a live session.</p>
+            <p>Live session audio stays in memory. Audio you explicitly record or import in History is saved locally until deleted.</p>
           </article>
           <article class="stat">
             <strong>Summaries</strong>
@@ -65,7 +65,7 @@
           </article>
           <article class="stat">
             <strong>Cloud processing</strong>
-            <p>Off by default and should require explicit user opt-in when available.</p>
+            <p>This release transcribes and analyzes conversation content on device. Optional downloads and location help make network requests.</p>
           </article>
         </div>
       </section>
@@ -80,7 +80,10 @@
             <li>Derived conversation signals such as sentiment, mood shifts, highlights, and optional coaching cues</li>
             <li>User settings such as appearance, analysis preferences, legal region, and privacy preferences</li>
             <li>Optional on-device session summaries if saving is enabled</li>
-            <li>Optional approximate legal-region suggestion inputs if the user requests location help</li>
+            <li>Conversation text and PDFs you manually import, and reviews you choose to save</li>
+            <li>Audio you explicitly record or import in History for later on-device transcription</li>
+            <li>One requested location for Apple Maps reverse geocoding when you choose legal-region help</li>
+            <li>Connection and model-request metadata when you choose to download a local AI model</li>
           </ul>
         </article>
 
@@ -91,7 +94,7 @@
             <li>ConvoPilot is not intended to diagnose health conditions.</li>
             <li>ConvoPilot is not a therapy or emergency service.</li>
             <li>ConvoPilot does not provide legal advice.</li>
-            <li>ConvoPilot version 1 does not guarantee universal two-sided call capture on iPhone.</li>
+            <li>ConvoPilot does not guarantee universal two-sided call capture on iPhone.</li>
           </ul>
         </article>
       </section>
@@ -102,32 +105,45 @@
         <div class="card-list">
           <article class="card">
             <h3>Transcription</h3>
-            <p>ConvoPilot is designed to use on-device Apple speech technologies by default whenever supported on the current device and locale.</p>
+            <p>This release uses on-device Apple speech technologies. Supported languages and speech assets depend on your device. Conversation audio is not sent to a transcription provider by this release.</p>
           </article>
           <article class="card">
             <h3>Realtime analysis</h3>
-            <p>Sentiment, emotional-state cues, highlights, live feedback, and optional coaching cues are intended to be generated on device from the current transcript window.</p>
+            <p>Conversation signals, highlights, live feedback, and optional coaching cues are generated on device from transcript text. Supported analysis can use Apple Intelligence or an optional downloaded local model. These are communication estimates, not medical assessments.</p>
           </article>
           <article class="card">
             <h3>Storage</h3>
-            <p>Raw audio is not intended to be retained. Session summaries are only stored locally if the user enables summary saving.</p>
+            <p>Live session audio stays in memory. Session summaries and full transcripts are stored locally only if the user enables saving. Imported reviews are stored only when you choose Save to History. Audio explicitly recorded or imported in History is saved on this device until deleted. App-managed conversation storage is excluded from cloud synchronization and backup. You can delete saved items in History and downloaded models in Settings.</p>
           </article>
         </div>
       </section>
 
       <section class="section">
-        <span class="section-kicker">4. Cloud Processing</span>
-        <h2 class="section-title">If cloud transcription is ever activated</h2>
+        <span class="section-kicker">4. Network Requests</span>
+        <h2 class="section-title">Optional external services</h2>
         <div class="notice">
           <span class="notice-title">Current default</span>
-          Cloud transcription is off by default. Users should be warned before enabling it.
+          Conversation transcription and analysis run on device in this release.
         </div>
         <p>
-          If a future or supported configuration enables cloud transcription, ConvoPilot should provide a clear warning,
-          require explicit opt-in, and show a visible cloud indicator when cloud processing is active for a session.
+          The cloud-transcription preference is off by default and requires an explicit warning-backed choice.
+          This release has no active cloud transcription engine. Allowing the preference does not send conversation content to a cloud service.
         </p>
         <p>
-          If cloud processing becomes active in production, this privacy policy should be updated before that version is submitted or released.
+          A future release that adds cloud transcription will update this policy and its disclosures before that service is available.
+        </p>
+        <p>
+          Optional Strong Local AI downloads contact Hugging Face and its download infrastructure to obtain model files.
+          Those services receive the selected model/file requests and connection information, including your IP address.
+          Hugging Face's <a href="https://huggingface.co/privacy">privacy policy</a> describes retained usage, IP, device,
+          and session-location information for service delivery, improvement, and security. Download metadata can be
+          associated with the connection making the request. Conversation audio and transcripts are not sent with model
+          download requests. Downloaded models analyze text on this device.
+        </p>
+        <p>
+          Optional legal-region help sends a requested location to Apple's Maps reverse-geocoding service to obtain an address or region suggestion.
+          ConvoPilot does not persist your coordinates or continuously track your location. You can choose a legal region manually without granting location access.
+          Apple speech-asset downloads and external support/model-information links may also make network requests governed by their providers' policies.
         </p>
       </section>
 
@@ -136,7 +152,7 @@
           <span class="section-kicker">5. Permissions</span>
           <h2 class="section-title">Why permissions are requested</h2>
           <ul class="list">
-            <li><strong>Microphone:</strong> to capture audio during a live session.</li>
+            <li><strong>Microphone:</strong> for a live session or an explicit History recording.</li>
             <li><strong>Speech recognition:</strong> to transcribe speech.</li>
             <li><strong>Notifications:</strong> to show optional local analysis prompts.</li>
             <li><strong>Location:</strong> only if the user asks the app to suggest a legal region.</li>
@@ -150,7 +166,8 @@
             <li>Whether optional coaching suggestions are enabled</li>
             <li>Whether local notifications are allowed</li>
             <li>Whether session summaries are stored on device</li>
-            <li>Whether cloud transcription is allowed when such a mode exists</li>
+            <li>Whether a cloud-transcription preference is allowed; this release has no active cloud engine</li>
+            <li>Whether to record/import audio, save an imported review, or download a local AI model</li>
             <li>What legal region is selected for general guidance</li>
           </ul>
         </article>
@@ -159,10 +176,11 @@
       <section class="section">
         <span class="section-kicker">7. Sharing and Sale of Data</span>
         <h2 class="section-title">How information is handled</h2>
-        <p>ConvoPilot is not designed to sell personal information or use transcript data for advertising.</p>
+        <p>ConvoPilot does not sell conversation content, use it for advertising, or include advertising or cross-app tracking SDKs.</p>
         <p>
-          By default, transcript and analysis data are intended to remain on device. If cloud transcription is ever activated,
-          the related privacy flow should describe the external processing clearly before the user starts the session.
+          Conversation audio, transcript text, and analysis remain on device in this release. The optional services described above
+          receive only the information needed for their requests; their privacy policies explain their own handling and retention.
+          If you email support, the message and contact information you choose to send are used to respond. Do not send sensitive conversation content unless you intend to share it.
         </p>
       </section>
 

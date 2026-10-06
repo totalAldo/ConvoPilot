@@ -1,0 +1,7 @@
+# This checkout contains the public site. Keep project notes in ../project-notes/.
+# Ignore rules do not remove files that are already tracked.
+*.md
+!/README.md
+/app-store/
+/benchmarks/
+/project-notes/
